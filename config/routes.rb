@@ -3,6 +3,7 @@
 
          get 'users/new'
          resources :users          # NEW LINE
+         resources :microposts, only: [:create, :destroy]     # NEW LINE
 
 
           root 'static_pages#home'
