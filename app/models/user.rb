@@ -1,8 +1,13 @@
 class User < ActiveRecord::Base
 	      attr_accessor :remember_token
       has_many :microposts, dependent: :destroy   #  CHANGED
-	   before_save { self.email = email.downcase }
+	    # Two NEW entries
+      has_many :comments
+      has_many :commented_posts, :class_name => "Micropost" ,
+               :through => :comments, :source => :micropost
 
+     before_save { self.email = email.downcase }
+     
       validates :name, length: { in: 4..30 }
       VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
       validates :email,presence: true,
