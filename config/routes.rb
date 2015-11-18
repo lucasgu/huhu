@@ -4,6 +4,7 @@
          get 'users/new'
          resources :users          # NEW LINE
          resources :microposts, only: [:create, :destroy]     # NEW LINE
+           resources :topics, only: [:new, :create, :index]
 
 
           root 'static_pages#home'
@@ -15,6 +16,11 @@
       get    'login'   => 'sessions#new'
       post   'login'   => 'sessions#create'
       delete 'logout'  => 'sessions#destroy'
+
+
+        get 'topic' => 'topics#index'
+        get 'users' => 'users#index'#new in 11 14 
+
       end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

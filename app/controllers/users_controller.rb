@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   
-
+before_action :logged_in_user, only: [:index]#new in 11 14
 
   def show
         @user = User.find(params[:id])
@@ -23,7 +23,23 @@ class UsersController < ApplicationController
       end
 
 
-  def new
-  	 @user = User.new
-  end
+        def new
+        	 @user = User.new
+        end
+
+
+
+        def index
+          @users=User.all
+        end #2015 11 14 new line
+
+
+
+
+
+
+
+
+
+
 end

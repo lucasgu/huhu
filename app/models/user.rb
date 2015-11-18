@@ -1,5 +1,15 @@
 class User < ActiveRecord::Base
 	      attr_accessor :remember_token
+
+
+#add topic question answer
+        has_and_belongs_to_many :topics
+
+        has_many :answers,dependent: :destroy
+        has_many :questions
+
+
+
       has_many :microposts, dependent: :destroy   #  CHANGED
 	    # Two NEW entries
       has_many :comments
@@ -7,7 +17,7 @@ class User < ActiveRecord::Base
                :through => :comments, :source => :micropost
 
      before_save { self.email = email.downcase }
-     
+
       validates :name, length: { in: 4..30 }
       VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
       validates :email,presence: true,
@@ -42,6 +52,12 @@ class User < ActiveRecord::Base
             def feed
                 Micropost.where("user_id = ?", id)
             end
+
+
+    
+
+
+
 
 
 end
