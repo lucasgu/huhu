@@ -1,0 +1,21 @@
+<h1>New Question</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    
+
+
+
+<%= form_for(@askquestion) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+     <%= f.label :content %>
+     <%= f.text_field :content %>
+
+    <%= f.label :topic_id %><br />
+    <%= f.collection_select(:topic_id, Topic.all, :id, :name, {}, {:class => "foo"} ) %>
+    <br>
+
+    <%= f.submit"Create", class: "btn btn-large btn-primary"  %> 
+<% end %>
+  </div>
+</div>

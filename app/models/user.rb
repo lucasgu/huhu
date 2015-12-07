@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 	      attr_accessor :remember_token
+has_many :askquestions
+has_many :answerquestions
 
 
 #add topic question answer
@@ -22,10 +24,10 @@ class User < ActiveRecord::Base
       VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
       validates :email,presence: true,
        format: { with: VALID_EMAIL_REGEX }
-      validates :password, presence: true, length: { minimum: 6 }
-      validates :password_confirmation, presence: true
-        has_secure_password      # A magic method!!
+      validates :password, presence: true, length: { minimum: 6 }  ,allow_blank: true
 
+      validates :password_confirmation, presence: true,allow_blank: true
+        has_secure_password      # A magic method!!
     # Returns the hash digest of a string.
       def User.digest(string)
         cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :

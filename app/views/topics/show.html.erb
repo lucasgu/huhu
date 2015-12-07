@@ -3,12 +3,33 @@
       <aside class="col-md-4">
         <section class="user_info">
           
-        <li><%= link_to "You Questions", questions_path %></li><!--new in 11.14 17-->
+
+        <li><%= link_to "See your askQuestions", topic_path %></li><!--new in 11.14 17-->
+        
 
 
-          
+        <%= link_to 'New Question', new_askquestion_path %>
+
+
         </section>
       </aside>
      
     
     </div>
+            <section class="user_info">
+
+    <p2>This topic have the question is <%= @topic.askquestions.count%></p2>
+     <% @topic.askquestions.each do |askquestion| %>
+       
+         <li><%= link_to askquestion.name, askquestion_path%></li>
+
+        
+        <%=askquestion.content%>
+    
+ <% end -%>
+         </section>
+
+
+ </section>
+
+ <h3>Reply to the topic</h3>

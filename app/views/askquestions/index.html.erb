@@ -1,0 +1,15 @@
+<%provide(:title,'ALL QUESTIONS')%>
+<h1>All Questions</h1>
+<ul class="users">
+	<%@askquestions.each do |askquestion|%>
+ <li >
+      <span class="user"><%= link_to askquestion.name, askquestion %></span>
+
+      <span class="content"><%= askquestion.content %></span>
+	</li>
+	<% end %>
+</ul>
+
+<%= link_to 'New Question', new_askquestion_path %>
+
+

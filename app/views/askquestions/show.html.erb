@@ -1,0 +1,24 @@
+
+<h3><%= @askquestion.name%></h3>
+
+  <h5><%= @askquestion.content%></h5>
+ <section class="user_info">
+  
+<p2>Comment count is <%= @askquestion.answerquestions.count%></p2>
+  
+
+  <br>
+
+  <% @askquestion.answerquestions.each do |answerquestion| %>
+    
+      <p>answer</p> 
+     <%= answerquestion.content %><br>
+     
+ <% end -%>
+
+
+    
+         </section>
+          
+
+ <%= render 'answerquestions/form'%>

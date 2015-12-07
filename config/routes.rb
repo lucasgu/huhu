@@ -5,7 +5,9 @@
          resources :users          # NEW LINE
          resources :topics         # NEW LINE
          resources :questions         # NEW LINE
-
+         resources :askquestions do        # NEW LINE
+         resources :answerquestions         # NEW LINE
+end
          resources :microposts, only: [:create, :destroy]     # NEW LINE
            resources :topics, only: [:new, :create, :index]
 
@@ -23,6 +25,7 @@
 
         get 'topic' => 'topics#index'
         get 'question' => 'questions#index'
+        get 'askquestion' => 'askquestions#index'
 
         get 'users' => 'users#index'#new in 11 14 
 
