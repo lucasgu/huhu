@@ -1,14 +1,15 @@
 <%provide(:title,'ALL TOPIC')%>
 <h1>All Topic</h1>
 <ul class="users">
-	<%@topics.each do |user|%>
+	<%@topics.each do |topic|%>
+	
 	<li>
 	
-	   <%=link_to user.name,user%>
+	   <%=link_to topic.name,topic%>
+	  
 	</li>
 	<% end %>
 </ul>
 
 <%= link_to 'New Topic', new_topic_path %>
-
 

@@ -3,6 +3,9 @@
 
          get 'users/new'
          resources :users          # NEW LINE
+         resources :topics         # NEW LINE
+         resources :questions         # NEW LINE
+
          resources :microposts, only: [:create, :destroy]     # NEW LINE
            resources :topics, only: [:new, :create, :index]
 
@@ -19,6 +22,8 @@
 
 
         get 'topic' => 'topics#index'
+        get 'question' => 'questions#index'
+
         get 'users' => 'users#index'#new in 11 14 
 
       end
