@@ -13,6 +13,7 @@ def index
 def show 
 @topic=current_user.topics
 @topic=Topic.find(params[:id])
+      
 
 end
 

@@ -9,13 +9,6 @@
         <section class="user_info">
           
 
-        <li><%= link_to "View other topic", topics_path %></li><!--new in 11.14 17-->
-        
-
-
-        <%= link_to 'New Question', new_askquestion_path %>
-
-
         </section>
       </aside>
      
@@ -35,6 +28,12 @@
 
 
  </section>
+ <br>
+         <%= link_to "View other topic", topics_path %><!--new in 11.14 17-->
+         <br>
+
+         <%= link_to 'New Question', new_askquestion_path %>
+
 <h3>Who have the same topic</h3>
  <p2>The number of users interesting in this topic  is <%= @topic.users.count%></p2>
 
@@ -42,6 +41,8 @@
 
          <%@topic.users.each do |user|%>
     
+
+
     <li>
     
        <%=link_to user.name,user%>
