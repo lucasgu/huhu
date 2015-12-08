@@ -16,14 +16,9 @@
 <p2>Answer count is <%= @askquestion.answerquestions.count%></p2>
 
   <% @askquestion.answerquestions.each do |answerquestion| %>
-      <p>Answer</p> 
-     <%= answerquestion.content %>
-
+     <p>Some one said:</p> <%= answerquestion.content %> 
  <% end -%>
-  <br>
 
-
-    
          </section>
           
 
