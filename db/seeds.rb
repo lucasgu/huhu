@@ -7,5 +7,5 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 # Create some users
     
-    # Associate some microposts with users
+ # Associate some microposts with users
  

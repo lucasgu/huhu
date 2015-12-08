@@ -11,5 +11,18 @@
 	<% end %>
 </ul>
 
-<%= link_to 'New Topic', new_topic_path %>
+
+
+
+<H2>You interesting topic count is  <%= @current_user.topics.count%></H2>
+     <% @current_user.topics.each do |topic| %>
+	 <ul class="users">
+	  <li> <%=link_to topic.name,topic%><li>
+	  	 
+</ul>
+
+
+ <% end -%>
+ 
+
 

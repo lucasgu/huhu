@@ -1,4 +1,9 @@
+<h3>Reply to the Question</h3>
+    <p2>This topic have the question is <%= @topic.askquestions.count%></p2>
+
 <% provide(:title, @topic.name) %>
+           
+    
     <div class="row">
       <aside class="col-md-4">
         <section class="user_info">
@@ -18,7 +23,6 @@
     </div>
             <section class="user_info">
 
-    <p2>This topic have the question is <%= @topic.askquestions.count%></p2>
      <% @topic.askquestions.each do |askquestion| %>
        
          <li><%= link_to askquestion.name,askquestion%></li>
@@ -31,5 +35,17 @@
 
 
  </section>
+<h3>Who have the same topic</h3>
+ <p2>The number of users interesting in this topic  is <%= @topic.users.count%></p2>
 
- <h3>Reply to the topic</h3>
+<ul class="users">
+
+         <%@topic.users.each do |user|%>
+    
+    <li>
+    
+       <%=link_to user.name,user%>
+      
+    </li>
+    <% end %>
+</ul>

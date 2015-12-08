@@ -2,6 +2,8 @@
          
 
          get 'users/new'
+                  resources :answerquestions         # NEW LINE
+
          resources :users          # NEW LINE
          resources :topics         # NEW LINE
          resources :questions         # NEW LINE

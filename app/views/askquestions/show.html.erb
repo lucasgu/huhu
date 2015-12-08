@@ -1,20 +1,26 @@
 
-<h3><%= @askquestion.name%></h3>
+   <h3><%= @askquestion.name%></h3>
 
   <h5><%= @askquestion.content%></h5>
- <section class="user_info">
-  
-<p2>Comment count is <%= @askquestion.answerquestions.count%></p2>
-  
+   
+ <p2>This question is ask by <%= link_to @askquestion.user.name, @askquestion.user%></p2>
+    
+<br>
+<br>
 
-  <br>
+
+
+
+ <section >
+  
+<p2>Answer count is <%= @askquestion.answerquestions.count%></p2>
 
   <% @askquestion.answerquestions.each do |answerquestion| %>
-    
-      <p>answer</p> 
-     <%= answerquestion.content %><br>
-     
+      <p>Answer</p> 
+     <%= answerquestion.content %>
+
  <% end -%>
+  <br>
 
 
     
@@ -22,3 +28,4 @@
           
 
  <%= render 'answerquestions/form'%>
+<%= link_to 'View more Topic', topics_path %>

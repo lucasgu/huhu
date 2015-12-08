@@ -18,3 +18,12 @@
       </div>
     
     </div>
+
+<h3>Interesting topic count is  <%= @user.topics.count%></h3>
+     <% @user.topics.each do |topic| %>
+   <ul class="users">
+    <li> <%=link_to topic.name,topic%><li>
+</ul>
+
+
+ <% end -%>
