@@ -32,7 +32,7 @@ def create
 
      # current_user.questions <<@question
 
-        redirect_to action: 'index', notice: 'Question was successfully created.'
+      redirect_to action: 'index', notice: 'Question was successfully created.'
     else
         render action: "new" 
     end

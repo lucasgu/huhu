@@ -21,7 +21,7 @@ end
       get    'login'   => 'sessions#new'
       post   'login'   => 'sessions#create'
       delete 'logout'  => 'sessions#destroy'
-
+       get'showself_topic_path'=>'topics#showself'
 
         get 'topic' => 'topics#index'
         get 'question' => 'questions#index'
