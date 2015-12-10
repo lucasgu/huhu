@@ -11,7 +11,8 @@ before_action :logged_in_user, only: [:index]#new in 11 14
                                   :password, :password_confirmation)
         @user = User.new(secure_params)
         if @user.save
-         remember @user       #  NEW LINE
+         remember @user 
+                   log_in @user      #  NEW LINE
         flash[:success] = "Welcome to the Twitter App!"    # NEW LINE
           redirect_to @user   # NEW LINE
  # Handle a successful save.

@@ -5,7 +5,8 @@ class SessionsController < ApplicationController
   	 user = User.find_by(email: params[:session][:email].downcase)
         if user && user.authenticate(params[:session][:password])
          remember user       # NEW LINE
-
+          log_in user
+       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
          redirect_to user      #  NEW LINE
 
           # Log the user in and redirect to their profile page.
