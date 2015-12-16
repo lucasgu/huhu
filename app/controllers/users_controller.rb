@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   
-before_action :logged_in_user, only: [:index]#new in 11 14
-
+before_action :logged_in_user, only: [:index,:edit, :update, :destroy]#new in 11 14
+before_action :admin_user, only: :destroy
   def show
         @user = User.find(params[:id])
         @microposts = @user.microposts
@@ -37,6 +37,18 @@ def edit
   @user=User.find(params[:id])
 end
 
+def destroy
+        User.find(params[:id]).destroy
+        flash[:success] = "User deleted"
+        redirect_to users_url
+end
+
+
+
+
+
+
+
 
 def update
 @user = User.find(params[:id])
@@ -57,5 +69,9 @@ params.require(:user).permit(:name, :email, :password,
 end
 
 
+def admin_user
+  redirect_to(root_url) unless current_user.admin?
+
+end
 
 end
