@@ -30,8 +30,8 @@ before_action :logged_in_user, only: [:index]#new in 11 14
 
 
         def index
-          @users=User.all
-        end #2015 11 14 new line
+@users = User.paginate(page: params[:page])       
+ end #2015 11 14 new line
 
 def edit 
   @user=User.find(params[:id])

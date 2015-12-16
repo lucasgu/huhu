@@ -10,6 +10,8 @@ source 'https://rubygems.org'
    gem 'bcrypt',   '3.1.7'
     gem 'sdoc',         '0.4.0', group: :doc
      gem 'bootstrap-sass',       '3.2.0.0'
+     gem 'faker',       '1.4.2'
+     gem 'bootstrap-will_paginate', '0.0.10'
 
     group :development, :test do
       gem 'sqlite3',     '1.3.9'
