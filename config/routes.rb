@@ -13,6 +13,14 @@ end
          resources :microposts, only: [:create, :destroy]     # NEW LINE
            resources :topics, only: [:new, :create, :index]
 
+      resources :users do
+           member do
+            get :following, :followers
+    end 
+end
+         resources :relationships,only: [:create, :destroy]
+
+
 
           root 'static_pages#home'
 
