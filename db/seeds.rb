@@ -30,3 +30,26 @@ users = User.all
     followers = users[3..40]
     following.each { |followed| user.follow(followed) }
     followers.each { |follower| follower.follow(user) }
+
+
+      user = User.find(1)
+    user.microposts.create(content: "Ruby is the best")
+    user.microposts.create(content: "Changed my mind, it's Java")
+    user = User.find(2)
+    user.microposts.create(content: "What Ruby lacks is ....")
+
+    # Associate some tags with microposts
+#TOPIC PART
+
+    java=Topic.create(name: "Java")
+    ruby=Topic.create(name: "ruby")
+    android=Topic.create(name:"android")
+    php=Topic.create(name:"php")
+
+    user = User.find(1).topics<<java
+    user = User.find(1).topics<<ruby
+    user = User.find(1).topics<<php
+
+    user = User.find(2).topics<<java
+
+    user = User.find(2).topics<<php
