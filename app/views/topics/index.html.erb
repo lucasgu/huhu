@@ -6,7 +6,7 @@
 	<li>
 	
 	   <%=link_to topic.name,topic%>
-	  
+	  <%= link_to "link", controller: "topics", action: "bind", id: topic.id%>
 	</li>
 	<% end %>
 </ul>

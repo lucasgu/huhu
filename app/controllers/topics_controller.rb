@@ -1,49 +1,62 @@
 
 class TopicsController < ApplicationController
-before_action :logged_in_user
+  before_action :logged_in_user
 
 
-def index
+  def index
     @topics = Topic.all
   end
 
 
 
 
-def show 
-@topic=current_user.topics
-@topic=Topic.find(params[:id])
-      
-
-end
-
-
-
-
-def new
-
-@topic=Topic.new
-
-end
-
-
-
-
-def create
-    secure_params = params.require(:topic).                                         
-                      permit(:name)
+  def show 
+    @topic=current_user.topics
+    @topic=Topic.find(params[:id])
     
-     @topic = Topic.new(secure_params)
-      
-  
+
+  end
+
+
+
+
+  def new
+
+    @topic=Topic.new
+
+  end
+
+  def bind
+
+    @topic = Topic.find(params[:id])
+
+    if current_user.topics.find_by(params[:id])==nil
+
+
+      current_user.topics<<@topic
+
+    end
+
+    redirect_to topics_path
+
+  end
+
+
+  def create
+    secure_params = params.require(:topic).                                         
+    permit(:name)
+    
+    @topic = Topic.new(secure_params)
+    
+    
 
 
     if  @topic.save 
       current_user.topics <<@topic
 
-        redirect_to action: 'index', notice: 'Topic was successfully created.'
+      redirect_to action: 'index', notice: 'Topic was successfully created.'
     else
-        render action: "new" 
+      render action: "new" 
     end
   end
 
@@ -51,4 +64,3 @@ def create
 end
 
 
- 

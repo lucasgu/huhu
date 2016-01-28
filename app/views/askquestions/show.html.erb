@@ -16,11 +16,26 @@
 <p2>Answer count is <%= @askquestion.answerquestions.count%></p2>
 
   <% @askquestion.answerquestions.each do |answerquestion| %>
-     <p>Some one said:</p> <%= answerquestion.content %> 
+
+     <p>Some one said:</p> 
+
+     <%= answerquestion.content %> 
  <% end -%>
 
          </section>
           
+<%= form_for [@askquestion,@askquestion.answerquestions.build] do |f| %>  
+   
 
- <%= render 'answerquestions/form'%>
+  <p><%= f.text_area :content %> </p>  
+
+  
+  <p><%= f.submit "Post Comment",class: "btn btn-large btn-primary"  %> </p>  
+
+ <br>
+<% end %>  
+
+
+
+<%#<%= render 'answerquestions/form'%>
 <%= link_to 'View more Topic', topics_path %>

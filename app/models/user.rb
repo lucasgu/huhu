@@ -5,7 +5,7 @@ has_many :answerquestions
 
 
 #add topic question answer
-        has_and_belongs_to_many :topics
+        has_and_belongs_to_many :topics, :uniq => true
 has_many :active_relationships, class_name: "Relationship",
                                foreign_key: "follower_id",
                                 dependent:   :destroy
@@ -30,6 +30,7 @@ has_many :following, through: :active_relationships, source: :followed
       validates :email,presence: true,
        format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
 
+     # validates :description
 
 
 

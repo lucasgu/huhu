@@ -9,8 +9,9 @@ def create
     secure_post = params.require(:answerquestion).permit(:content,:askquestion_id)
       
 
-    @answerquestion = @askquestion.answerquestions.create(params[:answerquestion].permit(:content))
-      
+    @answerquestion =@askquestion.answerquestions.create(params[:answerquestion].permit(:content)) && 
+       
+        
     @answerquestion = current_user.answerquestions.build(secure_post)
         
       

@@ -8,7 +8,7 @@ before_action :admin_user, only: :destroy
   end
      def create
         secure_params = params.require(:user).permit(:name, :email, 
-                                  :password, :password_confirmation)
+                                  :password, :password_confirmation,:description)
         @user = User.new(secure_params)
         if @user.save
          remember @user 
