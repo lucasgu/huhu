@@ -1,23 +1,40 @@
 <%provide(:title,'ALL TOPIC')%>
+
+
+   <form class="navbar-form navbar-left" role="search">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search">
+      </div>
+      <button type="submit" class="btn btn-default">Search Topic </button>
+    </form>
+
 <h1>All Topic</h1>
+
+
+
+<div>
 <ul class="users">
 	<%@topics.each do |topic|%>
 	
 	<li>
 	
 	   <%=link_to topic.name,topic%>
-	  <%= link_to "link", controller: "topics", action: "bind", id: topic.id%>
+	  <%= link_to "Like", controller: "topics", action: "bind", id: topic.id%>
 	</li>
 	<% end %>
 </ul>
 
-
+</div>
 
 
 <H2>You interesting topic count is  <%= @current_user.topics.count%></H2>
      <% @current_user.topics.each do |topic| %>
 	 <ul class="users">
-	  <li> <%=link_to topic.name,topic%><li>
+	  	<li>
+	
+	   <%=link_to topic.name,topic%>
+	  <%= link_to "Dislike", controller: "topics", action: "disbind", id: topic.id%>
+	</li>
 	  	 
 </ul>
 
@@ -25,5 +42,5 @@
  <% end -%>
  
 
-<%= link_to 'New Topic', new_topic_path %>
+<%= link_to 'New Topic', new_topic_path,class: "btn btn-large btn-primary" %>
 

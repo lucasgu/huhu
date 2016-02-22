@@ -1,0 +1,2 @@
+<%= form_for(current_user.active_relationshipvotes.find_by(voted_id: @answerquestion.id), html: { method: :delete }) do |f| %>
+<%= f.submit "Unvote", class: "btn" %> <% end %>

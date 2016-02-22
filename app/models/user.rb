@@ -2,6 +2,18 @@ class User < ActiveRecord::Base
 	      attr_accessor :remember_token
 has_many :askquestions
 has_many :answerquestions
+  has_many :upvotes
+
+
+#add the relationshipvote
+has_many :active_relationshipvotes, class_name: "Relationshipvote",
+                               foreign_key: "voter_id",
+                                dependent:   :destroy
+
+
+has_many :voted, through: :active_relationshipvotes, source: :voted
+
+
 
 
 #add topic question answer
@@ -77,8 +89,16 @@ def following?(other_user)
 following.include?(other_user) 
 end
     
-
-
+def vote(other_answer)
+active_relationshipvotes.create(voted_id: other_answer.id) 
+end
+def unvote(other_answer)
+active_relationshipvotes.find_by(voted_id: other_answer.id).destroy
+end
+def voted?(other_user)
+  voted.include?(other_user)
+  
+end
 
 
 

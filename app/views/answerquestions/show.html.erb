@@ -1,0 +1,36 @@
+   <h3><%= @answerquestion.content%></h3>
+   <h3><%= @answerquestion.user.name%></h3>
+       
+<div id="follow_form">
+<% if current_user.voted?(@answerquestion) %>
+<%= render 'unvote' %> <% else %>
+<%= render 'vote' %> <% end %>
+
+<h2>评论</h2>
+<% @answerquestion.commentanswers.each do |comment| %>
+  <p>
+    <strong>Comment title :</strong>
+    <%= comment.commenter %>
+  </p>
+
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+  </p>
+<% end %>
+</div>
+<%= current_user.voted.count %>
+<h2>Add a comment:</h2>
+<%= form_for([@answerquestion, @answerquestion.commentanswers.build]) do |f| %>
+  <p>
+    <%= f.label :commenter %><br>
+    <%= f.text_field :commenter %>
+  </p>
+  <p>
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p >
+<% end %>

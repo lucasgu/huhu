@@ -1,0 +1,17 @@
+<p> <% @signal = Upvote.where(:user_id => @user.id,:answerquestion_id => @answerquestion.id) %>
+        <% if not @signal.any? %>
+        <%= form_for(Upvote.new) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+          <br>
+          Good
+          <%= f.radio_button :state, 'good', :checked => true %>
+          <br>
+          Bad
+          <%= f.radio_button :state, 'bad' %>
+          <br>
+          <%= f.hidden_field :answerquestion_id, :value => @answerquestion.id %>
+          <br>
+          <%= f.submit "Submit", class: "btn btn-small btn-primary" %>
+          <% end %>
+        <% end %>
+        <% end %></p>

@@ -201,11 +201,7 @@
           padding: 5px 0;
         }
       }
-      .timestamp {
-        color: $gray-light;
-        display: block;
-        margin-left: 60px;
-      }
+      
       .gravatar {
         float: left;
         margin-right: 10px;
@@ -263,8 +259,20 @@ padding: 0;
 } }
 .users.follow { padding: 0;
 }
+/*you want your own color*/
+.navbar-defaultful {
+    background-color:#468CC8;
+    border-color: #E7E7E7;
+}
+.container1 {
+    padding-right:400px;
+
+    padding-right:400px;
+}
 
 
-
-
+.timestamp {
+        color: $gray-light;
+        display: block;
+      }
 

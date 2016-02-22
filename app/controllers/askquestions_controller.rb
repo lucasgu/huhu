@@ -16,6 +16,12 @@ end
 
 
 
+     
+
+
+
+
+
 def create
       
     secure_params = params.require(:askquestion).                                         

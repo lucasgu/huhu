@@ -9,7 +9,7 @@
 
 	<%@askquestions.each do |askquestion|%>
  
-<div class="container1">
+    <div class="container1">
 
       <div class="thumbnail ">
 
@@ -20,19 +20,18 @@
 
 
  <li >
-    <font size="4px"> <b> <%= link_to askquestion.name, askquestion   %></b></font>
+    <%= link_to askquestion.name, askquestion   %>
 
 <br>
     <span class="content"><%= askquestion.content %></span>
 	</li>
     <li>
-       <p>Asked by : </p>
+       <p>This question is asked by :   </p>
       
          
        
  <%= link_to gravatar_for(askquestion.user, size: 50), askquestion.user %> 
  <%= link_to askquestion.user.name,askquestion.user %>
- 
 
 <br>
  <span class="timestamp">

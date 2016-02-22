@@ -1,0 +1,9 @@
+    
+<% @user ||= current_user %>
+    <div class="stats">
+      <a href="<%= voted_user_path(@user) %>">
+        <strong id="voted" class="stat">
+<%= @user.voted.count %>
+        </strong>
+        following
+      </a></div>

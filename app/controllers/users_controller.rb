@@ -34,6 +34,7 @@ before_action :admin_user, only: :destroy
  end #2015 11 14 new line
 
 def edit 
+  
   @user=User.find(params[:id])
 end
 

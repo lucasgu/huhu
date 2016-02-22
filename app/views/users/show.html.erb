@@ -15,9 +15,6 @@
     <%= render 'shared/stats' %>
   </section>
 
-
-
-
         
       </aside>
       <div class="col-md-8">
@@ -30,14 +27,30 @@
           </ol>
         <% end %>
       </div>
-    
+
+
     </div>
 
+
+   <%= link_to "SHOW MY TOPIC", '#' , id: "comments-link" %>
+
+     <section id="topic-section">
 <h3>Interesting topic count is  <%= @user.topics.count%></h3>
      <% @user.topics.each do |topic| %>
    <ul class="users">
     <li> <%=link_to topic.name,topic%><li>
 </ul>
+ <% end -%>
+        </section>
 
 
+
+
+
+
+<h3>You have asked question is  <%= @user.askquestions.count%></h3>
+     <% @user.askquestions.each do |askquestion| %>
+   <ul class="users">
+    <li> <%=link_to askquestion.name,askquestion%><li>
+</ul>
  <% end -%>

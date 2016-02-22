@@ -9,7 +9,7 @@
     <%= f.label :name %>
     <%= f.text_field :name %>
      <%= f.label :content %>
-     <%= f.text_field :content %>
+     <%= f.text_area :content %>
 
     <%= f.label :topic_id %><br />
     <%= f.collection_select(:topic_id, Topic.all, :id, :name, {}, {:class => "foo"} ) %>

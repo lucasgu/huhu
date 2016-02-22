@@ -1,0 +1,5 @@
+
+<% if current_user.voted?(@answerquestion) %>
+<%= render 'unvote' %> <% else %>
+<%= render 'vote' %> <% end %>
+

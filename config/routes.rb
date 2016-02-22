@@ -1,6 +1,8 @@
  Rails.application.routes.draw do
          
 
+  get 'upvotes/create'
+
          get 'users/new'
                   resources :answerquestions         # NEW LINE
 
@@ -18,8 +20,25 @@ end
             get :following, :followers
     end 
 end
+
+resources :users do
+           member do
+            get :voter
+    end 
+end
+resources :answerquestions do
+           member do
+            get :voted
+    end 
+end
+
+resources :answerquestions do
+     resources :commentanswers
+end
+
          resources :relationships,only: [:create, :destroy]
 
+         resources :relationshipvotes,only: [:create, :destroy]
 
 
           root 'static_pages#home'
@@ -40,6 +59,7 @@ end
         get 'users' => 'users#index'#new in 11 14 
 
         get 'bind' => 'topics#bind'
+        get 'disbind' => 'topics#disbind'
 
       end
   # The priority is based upon order of creation: first created -> highest priority.

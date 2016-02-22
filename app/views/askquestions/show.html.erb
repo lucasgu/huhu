@@ -1,4 +1,10 @@
 
+   
+<div class="container1">
+
+      <div class="jumbotron">
+
+
    <h3><%= @askquestion.name%></h3>
 
   <h5><%= @askquestion.content%></h5>
@@ -8,34 +14,83 @@
 <br>
 <br>
 
-
+</div>
+</div>
 
 
  <section >
   
-<p2>Answer count is <%= @askquestion.answerquestions.count%></p2>
+<ul class="nav nav-pills">
+  <li class="active">
+    <a href="#">
+      <span class="badge pull-right">  <p2> <%= @askquestion.answerquestions.count%></p2>
+</span>
+     Answer count is
+    </a>
+  </li>
+
+
+</ul>
+</div>
+<div> 
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   <% @askquestion.answerquestions.each do |answerquestion| %>
 
-     <p>Some one said:</p> 
+   
+<div class="container">
 
-     <%= answerquestion.content %> 
+      <div class="jumbotron">
+         <%= link_to gravatar_for(answerquestion.user, size: 50), answerquestion.user %> 
+    <tr> <%=answerquestion.content %> </tr>
+
+    <tr> <%= link_to "view more ",answerquestion %> </tr>
+   
+    <li> <%= link_to answerquestion.user.name,answerquestion.user %> </li>
+  </div>
+
+</div>
  <% end -%>
 
+
+
+
+
+
+
+<div class="container">
+
          </section>
-          
-<%= form_for [@askquestion,@askquestion.answerquestions.build] do |f| %>  
+          <P>Post your own answer....</p>
+   <%= form_for [@askquestion,@askquestion.answerquestions.build] do |f| %>  
    
 
-  <p><%= f.text_area :content %> </p>  
+  <p><%= f.text_area :content  %> </p>  
 
-  
-  <p><%= f.submit "Post Comment",class: "btn btn-large btn-primary"  %> </p>  
+    <br>
+ 
+
+  <p><%= f.submit "Post Answer",class: "btn btn-large btn-primary"  %> </p>  
 
  <br>
-<% end %>  
+<% end %> 
+</section>
 
 
 
 <%#<%= render 'answerquestions/form'%>
 <%= link_to 'View more Topic', topics_path %>
+      </div>
+
