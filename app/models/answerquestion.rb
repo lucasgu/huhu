@@ -12,7 +12,7 @@ class Answerquestion < ActiveRecord::Base
 has_many :passive_relationshipvotes, class_name: "Relationshipvote",
                                foreign_key: "voted_id",
                                 dependent:   :destroy
-has_many :voters, through: :passive_relationships, source: :voter
+has_many :voters, through: :passive_relationshipvotes, source: :voter
 
 
 

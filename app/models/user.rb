@@ -76,8 +76,10 @@ has_many :following, through: :active_relationships, source: :followed
           update_attribute(:remember_digest, nil)
        end
             def feed
-                Micropost.where("user_id = ?", id)
-            end
+
+ Micropost.where("user_id IN (:following_ids) OR user_id = :user_id",
+                    following_ids: following_ids, user_id: id) 
+               end
 
  def follow(other_user)
 active_relationships.create(followed_id: other_user.id) 

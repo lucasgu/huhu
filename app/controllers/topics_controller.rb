@@ -50,17 +50,15 @@ class TopicsController < ApplicationController
     @topic = Topic.find(params[:id])
 #(id: user_id)
 
-  if current_user.topics.find_by(id: params[:id])==nil
+     if current_user.topics.find_by(id: params[:id])==nil
    
   # if current_user.topics.find_by(params[:id])==nil
-      current_user.topics<<@topic
+        current_user.topics<<@topic
        redirect_to topics_path
    
-    else
+      else
       
-redirect_to topics_path, notice: 'Topic was successfully haveed.'    
-
-     
+    redirect_to topics_path, notice: 'Topic was successfully haveed.'    
 
     end
 

@@ -8,6 +8,7 @@
    <h3><%= @askquestion.name%></h3>
 
   <h5><%= @askquestion.content%></h5>
+
    
  <p2>This question is ask by <%= link_to @askquestion.user.name, @askquestion.user%></p2>
     
@@ -59,6 +60,19 @@
     <tr> <%= link_to "view more ",answerquestion %> </tr>
    
     <li> <%= link_to answerquestion.user.name,answerquestion.user %> </li>
+    <%= link_to "Like", controller: "askquestions", action: "bindvote", id: answerquestion.id%>
+
+     <%= answerquestion.voters.count %>
+
+
+
+
+
+
+
+
+
+
   </div>
 
 </div>

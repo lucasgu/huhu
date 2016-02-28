@@ -25,10 +25,15 @@ def create
     end
   end
 def show
+   
+
     @answerquestion = Answerquestion.find(params[:id])
     @user=current_user
-    
+    @count=@answerquestion.voters.count
   end
+
+
+
 
 
 end

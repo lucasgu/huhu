@@ -19,7 +19,16 @@
   </p>
 <% end %>
 </div>
-<%= current_user.voted.count %>
+<p><%= @answerquestion.voters.count %>qweqweqweqweqweqwe</p>
+<p><%= @count %>dsfsdafsadfdsf</p>
+<% @answerquestion.voters.each do |voter| %>
+<%= @answerquestion.voters.name %>
+
+
+
+<% end %>
+
+
 <h2>Add a comment:</h2>
 <%= form_for([@answerquestion, @answerquestion.commentanswers.build]) do |f| %>
   <p>
